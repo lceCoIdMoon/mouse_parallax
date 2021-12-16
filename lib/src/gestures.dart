@@ -47,8 +47,8 @@ class PointerListener extends StatelessWidget {
         onExit: (e) => onExit(e, constraints),
         child: Listener(
           onPointerMove: (e) => onHover(e, constraints),
-          onPointerDown: (e) => onEnter(e, constraints),
-          onPointerUp: (e) => onExit(e, constraints),
+          onPointerDown: touchBased ? (e) => onEnter(e, constraints) : null,
+          onPointerUp: touchBased ? (e) => onExit(e, constraints) : null,
           child: child,
         ),
       );
